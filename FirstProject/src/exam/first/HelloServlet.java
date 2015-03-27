@@ -54,8 +54,13 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html; charset=UTF-8");//client한테 응답을 보내줄때
-		request.setCharacterEncoding("UTF-8"); //요청올때부터 한글 지원이 안됨
+		response.setContentType("text/html; charset=UTF-8");
+		//client한테 응답을 보내줄때
+		//문서종류를 알려주는것 MIME  앞에가 대분류/하위 소분류 ->텍스트 형태의 html로 만들겟다
+		request.setCharacterEncoding("UTF-8"); 
+		//요청올때부터 한글 지원이 안됨
+		//이름이나 뭔갈쓰고 넘길때 주소에 입력되는게 UTF-8이 가능하게
+		//Servers->server에서 65번째줄에도 설정을 해줘야 한다.
 		PrintWriter out = response.getWriter();
 		out.print("helloPost"+"<br>");
 		String name = request.getParameter("name");
